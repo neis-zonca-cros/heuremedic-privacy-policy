@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité - Heuremedic</title>
+
+  <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    /* Couleurs */
+    :root {
+      --bg: #213E49;     /* fond foncé */
+      --text: #EFEFEF;   /* texte clair */
+      --card: #2b4c59;   /* cartes */
+      --accent: #EFEFEF; /* accents/traits */
+      --muted: #cfd8dc;  /* texte secondaire */
+    }
+
+    /* Global */
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+
+    /* Animation d'apparition */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Conteneur principal */
+    .container {
+      max-width: 900px;
+      width: 92%;
+      margin: 40px auto;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(239, 239, 239, 0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Titres */
+    h1, h2, h3 { color: var(--text); }
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+    h3 {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0 0 8px 0;
+    }
+    h2 {
+      margin-top: 30px;
+      padding-bottom: 8px;
+      font-size: 1.4em;
+      border-bottom: 2px solid rgba(239, 239, 239, 0.2);
+    }
+
+    /* Barre de navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 22px 0;
+      padding: 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(239, 239, 239, 0.08);
+    }
+    .nav a {
+      background: #2b4c59;
+      color: var(--text);
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      font-size: 0.92em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(239, 239, 239, 0.06);
+    }
+    .nav a:hover {
+      transform: translateY(-2px);
+      background: #345a68;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Icônes simples */
+    .nav a[href="#donnees"]::before { content: "📂"; }
+    .nav a[href="#utilisation"]::before { content: "⚙️"; }
+    .nav a[href="#base-legale"]::before { content: "⚖️"; }
+    .nav a[href="#partage"]::before { content: "🔄"; }
+    .nav a[href="#tiers"]::before { content: "🧩"; }
+    .nav a[href="#securite"]::before { content: "🔐"; }
+    .nav a[href="#droits"]::before { content: "🧾"; }
+    .nav a[href="#contact"]::before { content: "📧"; }
+
+    /* Sections */
+    .section {
+      margin-bottom: 20px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(239, 239, 239, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .section p, .section li { color: var(--text); }
+    .muted { color: var(--muted); }
+
+    /* Listes */
+    ul { padding-left: 20px; }
+    li + li { margin-top: 6px; }
+
+    /* Encarts */
+    .note {
+      background: rgba(255, 255, 255, 0.06);
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 12px 0;
+      font-size: 0.95em;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 14px;
+      background: #2b4c59;
+      color: var(--text);
+      margin-top: 30px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      font-weight: 300;
+      border: 1px solid rgba(239, 239, 239, 0.08);
+    }
+
+    /* Bouton retour en haut */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2b4c59;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(239, 239, 239, 0.08);
+    }
+    #back-to-top:hover { background: #345a68; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .container { width: 94%; padding: 16px; }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
+      .nav { gap: 8px; }
+      .nav a { font-size: 0.85em; padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Politique de confidentialité</h1>
+    <h3>de l'application mobile HEUREMEDIC</h3>
+    <p class="muted" style="text-align:center"><strong>Dernière mise à jour&nbsp;:</strong> 14/08/2025</p>
+
+    <!-- Barre de navigation -->
+    <nav class="nav" aria-label="Navigation des sections de la politique de confidentialité">
+      <a href="#donnees">Données collectées</a>
+      <a href="#utilisation">Utilisation</a>
+      <a href="#base-legale">Base légale</a>
+      <a href="#partage">Partage</a>
+      <a href="#tiers">Fournisseurs tiers</a>
+      <a href="#securite">Sécurité & conservation</a>
+      <a href="#droits">Vos droits</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="section" id="intro">
+      <p>HEUREMEDIC vous aide à répondre à deux questions essentielles&nbsp;: <em>«&nbsp;Quand ai-je pris mon dernier médicament&nbsp;?&nbsp;»</em> et <em>«&nbsp;Puis-je en reprendre maintenant&nbsp;?&nbsp;»</em>. L'application vous permet d'enregistrer vos médicaments, de définir les délais à respecter entre deux prises, d'être notifié au bon moment et de conserver un historique clair de vos prises, y compris pour plusieurs profils si vous le souhaitez.</p>
+      <div class="note">Résumé rapide&nbsp;: vos données de suivi sont <strong>stockées localement sur votre appareil</strong> (base Realm). Aucun serveur propre à HEUREMEDIC ne reçoit vos données de santé. Nous utilisons uniquement des services tiers pour <strong>les rapports de stabilité</strong> (Crashlytics) et <strong>des mesures d'usage agrégées</strong> (Analytics).</div>
+    </div>
+
+    <div class="section" id="donnees">
+      <h2>1. Données collectées et traitées</h2>
+      <p>HEUREMEDIC traite uniquement les informations nécessaires au fonctionnement de ses fonctionnalités&nbsp;:</p>
+      <ul>
+        <li><strong>Médicaments</strong>&nbsp;: nom, forme, dose, durée/intervalle à respecter entre deux prises.</li>
+        <li><strong>Historique des prises</strong>&nbsp;: date et heure des prises, heure de fin d'effet calculée.</li>
+        <li><strong>Profils</strong>&nbsp;: création de plusieurs profils (p. ex. proches/enfants) et avatar local si vous en définissez un.</li>
+        <li><strong>Réglages</strong>&nbsp;: langue, préférences de notifications, unités et paramètres d'affichage.</li>
+      </ul>
+      <p>Ces données restent <strong>sur votre appareil</strong> et sont stockées dans une base de données locale <strong>Realm</strong>. L'application utilise des <strong>notifications locales</strong> pour vous rappeler les prises&nbsp;: aucun jeton distant (push) n'est envoyé à un serveur HEUREMEDIC.</p>
+    </div>
+
+    <div class="section" id="utilisation">
+      <h2>2. Finalités d'utilisation</h2>
+      <ul>
+        <li><strong>Fourniture du service</strong>&nbsp;: suivi des médicaments, calcul de l'heure de fin d'effet, rappels et historique.</li>
+        <li><strong>Amélioration produit</strong>&nbsp;: mesure d'usage <em>agrégée</em> et non ciblée pour comprendre les fonctionnalités utilisées (Analytics).</li>
+        <li><strong>Sécurité & diagnostics</strong>&nbsp;: analyse des pannes et erreurs afin d'améliorer la stabilité de l'application (Crashlytics).</li>
+      </ul>
+    </div>
+
+    <div class="section" id="base-legale">
+      <h2>3. Base légale (RGPD)</h2>
+      <ul>
+        <li><strong>Exécution du contrat</strong>&nbsp;: traitement nécessaire pour fournir les fonctionnalités de suivi et de rappel.</li>
+        <li><strong>Intérêt légitime</strong>&nbsp;: assurer la sécurité, corriger les anomalies et améliorer l'application via des rapports de crash.</li>
+        <li><strong>Consentement (le cas échéant)</strong>&nbsp;: si vous avez la possibilité d'activer/désactiver les mesures d'audience, votre choix sert de base légale.</li>
+      </ul>
+    </div>
+
+    <div class="section" id="partage">
+      <h2>4. Partage des données</h2>
+      <p>Nous ne <strong>vendons</strong>, ne <strong>louons</strong> ni ne <strong>partageons</strong> vos données personnelles de suivi avec des tiers à des fins commerciales. Les données de santé que vous saisissez <strong>ne quittent pas votre appareil</strong> dans le cadre du fonctionnement normal de l'application.</p>
+      <p>Les seuls échanges vers l'extérieur concernent des <strong>informations techniques</strong> nécessaires&nbsp;: rapports de crash (Crashlytics) et événements d'usage <em>agrégés</em> (Analytics), qui peuvent inclure des métadonnées d'appareil (modèle, version d'OS), l'identifiant d'installation/instance d'application, la version de l'app et les traces d'erreur.</p>
+    </div>
+
+    <div class="section" id="tiers">
+      <h2>5. Fournisseurs tiers utilisés</h2>
+      <ul>
+        <li><strong>Firebase Crashlytics</strong> (Google)&nbsp;: collecte des informations relatives aux crashs et erreurs afin d'identifier et corriger les problèmes de stabilité.</li>
+        <li><strong>Google Analytics for Firebase</strong>&nbsp;: mesure l'utilisation de l'application de manière agrégée (par ex. nombre de lancements, écrans visités) pour orienter les améliorations.</li>
+      </ul>
+      <p>Ces services peuvent traiter certaines données <strong>en dehors de l'Union européenne</strong> (notamment aux États‑Unis). Nous veillons à ce que des <strong>garanties appropriées</strong> s'appliquent (p. ex. clauses contractuelles types) conformément au RGPD.</p>
+      <p class="note">Vous pouvez limiter la collecte de données d'usage en ajustant les réglages de confidentialité de votre appareil (p. ex. "Limiter le suivi publicitaire") et, si l'application le propose, via un réglage interne relatif aux statistiques d'utilisation.</p>
+    </div>
+
+    <div class="section" id="securite">
+      <h2>6. Sécurité et conservation</h2>
+      <ul>
+        <li><strong>Stockage local</strong>&nbsp;: vos données de suivi sont enregistrées dans Realm sur votre appareil. Pensez à protéger votre téléphone (code, biométrie) et à effectuer des sauvegardes de l'appareil si vous le souhaitez.</li>
+        <li><strong>Conservation</strong>&nbsp;: les données restent tant que vous conservez l'application et/ou jusqu'à leur suppression depuis l'interface (suppression d'un profil ou de l'historique) ou via les réglages de l'appareil (effacement des données/désinstallation).</li>
+        <li><strong>Rapports et analytics</strong>&nbsp;: conservés par les fournisseurs tiers pour des durées limitées nécessaires à l'analyse et à l'amélioration. Les périodes exactes dépendent de leurs politiques en vigueur.</li>
+      </ul>
+    </div>
+
+    <div class="section" id="droits">
+      <h2>7. Vos droits</h2>
+      <p>Conformément au RGPD, vous disposez des droits suivants&nbsp;:</p>
+      <ul>
+        <li><strong>Accès et portabilité</strong>&nbsp;: consulter et, si besoin, exporter les informations enregistrées sur votre appareil.</li>
+        <li><strong>Rectification</strong>&nbsp: modifier des données erronées directement depuis l'application.</li>
+        <li><strong>Effacement</strong>&nbsp;: supprimer un profil, l'historique, ou l'ensemble des données via les réglages de l'appareil (effacement des données/désinstallation).</li>
+        <li><strong>Opposition et limitation</strong>&nbsp;: vous pouvez limiter certaines collectes (p. ex. analytics) comme indiqué ci‑dessus.</li>
+        <li><strong>Réclamation</strong>&nbsp;: auprès de l'autorité de contrôle compétente (en France&nbsp;: la CNIL).</li>
+      </ul>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>8. Contact</h2>
+      <p>Pour toute question liée à cette politique ou à vos données, contactez‑nous&nbsp;:</p>
+      <p><a href="mailto:neis.zonca.cros@gmail.com" style="color: var(--text); text-decoration: underline;">neis.zonca.cros@gmail.com</a></p>
+    </div>
+
+    <div class="section" id="modifs">
+      <h2>9. Modifications de la politique</h2>
+      <p>Cette politique peut évoluer pour refléter les changements de l'application, des services utilisés ou du cadre légal. Nous mettrons à jour la date en en‑tête et, si les changements sont significatifs, nous vous en informerons de manière appropriée.</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 HEUREMEDIC – Tous droits réservés</p>
+    </div>
+  </div>
+
+  <!-- Bouton retour en haut -->
+  <button id="back-to-top" aria-label="Revenir en haut" onclick="scrollToTop()">⬆</button>
+
+  <script>
+    // Navigation douce vers les ancres
+    document.addEventListener('DOMContentLoaded', function () {
+      const links = document.querySelectorAll('.nav a');
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            window.scrollTo({ top: targetElement.offsetTop - 10, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+
+    // Bouton retour en haut
+    window.addEventListener('scroll', function () {
+      const btn = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        btn.style.display = 'block';
+        btn.style.opacity = '1';
+      } else {
+        btn.style.opacity = '0';
+        setTimeout(() => { btn.style.display = 'none'; }, 250);
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
